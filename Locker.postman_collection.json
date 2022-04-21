@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "9b99d9c4-c5a5-4da0-881a-63324232227b",
+		"name": "Locker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/players/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"players",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mathhews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/players/0/matt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"players",
+						"0",
+						"Matthew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Players - next 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/players/0?limit=5&skip=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"players",
+						"0"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "skip",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Players - order by total strikes DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/players/0?sort=12&dir=desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"players",
+						"0"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "12"
+						},
+						{
+							"key": "dir",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Players - order by total score ASC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/players/0?sort=3&dir=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"players",
+						"0"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "3"
+						},
+						{
+							"key": "dir",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:9.5.25-alpine
+    container_name: locker_postgresql
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: locker
+      POSTGRES_USER: locker
+      POSTGRES_DB: locker
+    ports:
+      - 15432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./scripts/schemas.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+# psql -h localhost -p 15432 -U locker locker      

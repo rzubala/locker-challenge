@@ -1,0 +1,2 @@
+TRUNCATE main.event CASCADE;
+TRUNCATE main.player CASCADE;
