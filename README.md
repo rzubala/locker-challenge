@@ -35,6 +35,7 @@ The players data can be retrieved by the GET request to the endpoint:
 where:
 * `eventId` is the only required parameter and it is the ID of the tournament - here: `0`
 * `filterName` is optional and can be used for name filtering
+
 One can use query parameters as well:
 * `limit` to limit the number of returned players
 * `skip` to skip the number of players - for pagination purposes
@@ -43,6 +44,6 @@ One can use query parameters as well:
 
 Sample queries:
 * `curl -o /tmp/res.json 'http://localhost:3000/players/0?limit=5&skip=5&sort=12&dir=desc'` it will return next 5 players sorted by total strikes in descending order.
-* `curl -o /tmp/res.json 'http://localhost:3000/players/0/matt?sort=1&dir=asc'` will return players whose names include `matt`
+* `curl -o /tmp/res.json 'http://localhost:3000/players/0/matt?sort=1&dir=asc'` it will return players whose names include `matt`
 
 I have prepared sample queries to retrieve players by Postman as well: `Locker.postman_collection.json`.
