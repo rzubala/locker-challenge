@@ -15,5 +15,4 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
       - ./scripts/schemas.sql:/docker-entrypoint-initdb.d/create_tables.sql
-
-# psql -h localhost -p 15432 -U locker locker      
+      

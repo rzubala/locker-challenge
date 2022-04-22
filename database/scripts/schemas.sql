@@ -1,14 +1,14 @@
 CREATE SCHEMA IF NOT EXISTS main;
 
 CREATE TABLE IF NOT EXISTS main.player (
-	id_player int PRIMARY KEY,
+    id_player int PRIMARY KEY,
     name varchar(64) NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS player_name ON main.player (name);
 
 CREATE TABLE IF NOT EXISTS main.event (
-	id_event int PRIMARY KEY,
+    id_event int PRIMARY KEY,
     name text NOT NULL
 );
 

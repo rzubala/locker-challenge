@@ -1,13 +1,13 @@
 import { SortDirection } from "../models/controllerTypes"
 
-const buildScoreExpression = (column: string): string => `NULLIF(regexp_replace(${column}, 'E', '9999', 'g'), '')::int`
+const buildScoreExpression = (column: string): string => `regexp_replace(${column}, 'E', '9999', 'g')::int`
 
 const defaultSecondExpression = ', p.name ASC'
 const buildOrderBy = (expression: string, direction: string, secondExpression: string = defaultSecondExpression): string => ` ORDER BY ${expression} ${direction} ${secondExpression} `
 
 export const MAX_ROUNDS = 4
 export const buildRoundSelect = (rounds: number) => Array.from({length: rounds}, (_, i) => i + 1).map(r => {
-    return `COALESCE(round.strikes[${r}], 0) as round${r}_strike, COALESCE(round.score[${r}], '') as round${r}_score`
+    return `COALESCE(round.strikes[${r}], 0) as round${r}_strikes, COALESCE(round.score[${r}], '') as round${r}_score`
 })
 
 export const addSort = (sortColumn: number | undefined, sortDirection: SortDirection | undefined): string => {
