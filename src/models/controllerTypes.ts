@@ -6,8 +6,8 @@ export type RequestParams = {
 export type SortDirection = 'asc' | 'desc'
 
 export type RequestQuery = {
-    limit?: number
-    skip?: number
-    sort?: number
+    limit?: string
+    skip?: string
+    sort?: string
     dir?: SortDirection
 }

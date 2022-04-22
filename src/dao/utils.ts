@@ -7,16 +7,16 @@ const buildOrderBy = (expression: string, direction: string, secondExpression: s
 
 export const MAX_ROUNDS = 4
 export const buildRoundSelect = (rounds: number) => Array.from({length: rounds}, (_, i) => i + 1).map(r => {
-    return `round.strikes[${r}] as round${r}_strike, round.score[${r}] as round${r}_score`
+    return `COALESCE(round.strikes[${r}], 0) as round${r}_strike, COALESCE(round.score[${r}], '') as round${r}_score`
 })
 
-export const addSort = (sortColumn?: number, sortDirection?: SortDirection): string => {
+export const addSort = (sortColumn: number | undefined, sortDirection: SortDirection | undefined): string => {
     const defaultColumn = 'per.position_id'
     const direction = sortDirection?.toLowerCase() === 'desc' ? 'DESC' : 'ASC'
     if (!sortColumn) {
         return buildOrderBy(defaultColumn, direction)
     }
-    switch (+sortColumn) {
+    switch (sortColumn) {
         case 1:
             return buildOrderBy(defaultColumn, direction)
         case 2:

@@ -25,7 +25,7 @@ export const save = async (client: PoolClient, playerEventResult: PlayerEventRes
     return await client.query(query[0], query[1])
 }
 
-export const retrieveResults = async (eventId: number, playerName?: string, limit?: number, skip?: number, sortColumn?: number, sortDirection?: SortDirection) => {
+export const retrieveResults = async (eventId: number, playerName: string | undefined, limit: number | undefined, skip: number | undefined, sortColumn: number | undefined, sortDirection: SortDirection | undefined) => {
     const values: (string | number)[] = [eventId]
     let paramCnt = 2
     let personFilter = '' 
@@ -34,11 +34,11 @@ export const retrieveResults = async (eventId: number, playerName?: string, limi
         personFilter = ` and LOWER(p.name) like $${paramCnt++} `
     }   
     let pagination = ''
-    if (limit && +limit >= 0) {
+    if (limit) {
         values.push(limit)
         pagination += ` LIMIT $${paramCnt++}`
     }
-    if (skip && +skip > 0) {
+    if (skip) {
         values.push(skip)
         pagination += ` OFFSET $${paramCnt++}`
     }
