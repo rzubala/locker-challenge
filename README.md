@@ -46,6 +46,11 @@ One can use query parameters as well:
 * `sort` to sort the result by the column number
 * `dir` can have values `asc` or `desc`
 
+Every player object returned from the server has the following keys (which can be translated to table columns):
+| 1        | 2    | 3           | 4              | 5            | 6              | 7            | 8              | 9            | 10             | 11           | 12            |
+|----------|------|-------------|----------------|--------------|----------------|--------------|----------------|--------------|----------------|--------------|---------------|
+| position | name | total_score | round1_strikes | round1_score | round2_strikes | round2_score | round3_strikes | round3_score | round4_strikes | round4_score | total_strikes |
+
 Sample queries:
 * `curl -o /tmp/res.json 'http://localhost:3000/players/0?limit=5&skip=5&sort=12&dir=desc'` it returns next 5 players sorted by total strikes in descending order.
 * `curl -o /tmp/res.json 'http://localhost:3000/players/0/matt?sort=1&dir=asc'` it returns players whose names include `matt`
